@@ -30,7 +30,8 @@ import {
   FlaskConical,
   Code2,
   Brain,
-  ShieldAlert
+  ShieldAlert,
+  Mic
 } from "lucide-react";
 
 const ProjectCard = ({ title, problem, insight, solution, features, thinking, impact, decisions, tradeoffs, northStar, kpis, userFlow, stack, testing, systemOutput, limitations, futureImprovements, failureHandling, icon: Icon }: any) => {
@@ -563,6 +564,212 @@ const PRDModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                   <p className="text-sm text-zinc-400">{t.task}</p>
                 </div>
               ))}
+            </div>
+          </section>
+        </div>
+
+        <div className="p-8 bg-zinc-900/30 border-t border-zinc-800 flex justify-center">
+          <button 
+            onClick={onClose}
+            className="px-8 py-3 bg-zinc-800 text-white rounded-full font-bold hover:bg-zinc-700 transition-colors"
+          >
+            Close Document
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const VoicePRDModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  if (!isOpen) return null;
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        className="bg-zinc-950 border border-zinc-800 w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="sticky top-0 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 p-6 flex justify-between items-center z-10">
+          <div>
+            <h2 className="text-2xl font-bold text-white uppercase tracking-tighter">AI Voice Conversation Simulator PRD</h2>
+            <p className="text-blue-500 text-xs font-bold uppercase tracking-widest">Product Requirement Document • Group 14 - Phase III</p>
+          </div>
+          <button 
+            onClick={onClose}
+            className="p-2 hover:bg-zinc-900 rounded-full transition-colors"
+          >
+            <X className="w-6 h-6 text-zinc-400" />
+          </button>
+        </div>
+
+        <div className="p-8 md:p-12 space-y-16">
+          {/* Document metadata */}
+          <section className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-zinc-900/30 p-6 rounded-xl border border-zinc-900">
+            <div>
+              <span className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider block">Product Name</span>
+              <span className="text-sm text-white font-medium">AI Voice Simulator</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider block">Phase</span>
+              <span className="text-sm text-white font-medium">MVP (Phase 3)</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider block">Date</span>
+              <span className="text-sm text-white font-medium">15th May 2026</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider block">Version</span>
+              <span className="text-sm text-white font-medium">v1.0 (Final)</span>
+            </div>
+          </section>
+
+          {/* 1. Executive overview */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">One-Line Pitch</h3>
+            <p className="text-xl text-blue-400 font-medium italic leading-relaxed">
+              "A voice-first AI app that lets users rehearse difficult conversations in emotionally realistic scenarios and receive structured feedback after each session; privately and without consequences."
+            </p>
+          </section>
+
+          {/* 2. Challenge & Problem Statement */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 1: Problem Statement & Discovery</h3>
+            <div className="space-y-4">
+              <p className="text-zinc-300 leading-relaxed">
+                Users, particularly students and early-career professionals, have no safe, realistic environment to practice emotionally charged conversations before they happen. This is not an informational issue but an <strong>experiential problem</strong>: they know what to say, but they have never practiced saying it under intense emotional pressure.
+              </p>
+              <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-900 space-y-4">
+                <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Prioritized Problem Statement</h4>
+                <div className="space-y-2 text-sm text-zinc-300">
+                  <p><strong>P0:</strong> No safe environment to practice under real emotional pressure.</p>
+                  <p><strong>P1:</strong> Counterparts in static roleplay never surprise you, preventing skill transfer to real life.</p>
+                  <p><strong>P2:</strong> Absence of external feedback loops, meaning blind spots are replayed indefinitely.</p>
+                  <p><strong>P3:</strong> Overthinking and self-consciousness suppress expression even when the user knows the correct script.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 3. Intended Impact & Value Proposition */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 2: Vision & Value Proposition</h3>
+            <div className="space-y-4 text-zinc-300">
+              <p>
+                <strong>Vision:</strong> Set up a structured, scalable, and accessible training framework for continuous improvement in interpersonal intelligence, providing users with a consequence-free environment to practice high-stakes conversations before they happen.
+              </p>
+              <p>
+                <strong>Unique Value Proposition:</strong> An on-demand, infinitely patient, emotionally variable voice companion that scales without human staffing, resolving core social exposure or heavy coaching expense boundaries.
+              </p>
+              <p className="text-blue-400 font-semibold">
+                Outcome Index: "Help users show up in high-stakes moments with calm, clarity, and the ability to say what they actually mean. The success state is defined by the absence of regret, not just better performance."
+              </p>
+            </div>
+          </section>
+
+          {/* 4. Personas */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 3: Target Persona</h3>
+            <div className="bg-zinc-900/40 p-6 border border-zinc-900 rounded-xl">
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-white font-bold text-base">Aisha, 26 — Junior PM, Bengaluru</span>
+                <span className="text-xs text-blue-500 font-mono">Student / Early Career</span>
+              </div>
+              <ul className="space-y-3 text-sm text-zinc-400">
+                <li>• Knows how a salary negotiation should sound intellectually, but backups or apologizes when challenged.</li>
+                <li>• Avoids peer training due to social anxiety, judgment fear, or feeling awkward.</li>
+                <li>• <strong>Job to be Done:</strong> Practice privately, 20 minutes before a meeting, in a stress-mimicking sandbox without social cost.</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* 5. Proposed Solution and Goals */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 4 & 5: Solution Scope & Goals</h3>
+            <div className="space-y-4 text-sm text-zinc-300">
+              <p>A mobile-first, voice-enabled conversational simulator featuring three core, low-latency flows:</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                <div className="p-4 bg-zinc-900/20 border border-zinc-900 rounded-lg">
+                  <span className="text-white font-bold block mb-1 text-xs uppercase tracking-wider">1. Scenario Setup</span>
+                  <span className="text-zinc-400 text-xs text-zinc-500">Configure conversation types, counterpart properties, and difficulty coefficients.</span>
+                </div>
+                <div className="p-4 bg-zinc-900/20 border border-zinc-900 rounded-lg">
+                  <span className="text-white font-bold block mb-1 text-xs uppercase tracking-wider">2. Voice Roleplay</span>
+                  <span className="text-zinc-400 text-xs text-zinc-500">Engage in highly fluent spoken conversations with an emotionally responsive, adaptive AI.</span>
+                </div>
+                <div className="p-4 bg-zinc-900/20 border border-zinc-900 rounded-lg">
+                  <span className="text-white font-bold block mb-1 text-xs uppercase tracking-wider">3. Post-Session Coach</span>
+                  <span className="text-zinc-400 text-xs text-zinc-500">Review structured feedback, highlighted timestamps, and voice metrics report card.</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 6. Product Flows */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 6 & 7: Core Feature Breakdown</h3>
+            <div className="space-y-6">
+              {[
+                { title: "Story 1 & Feature 1: Scenario Setup Flow", desc: "Select from curated tracks (Salary, Breakup, boundary, or Custom) + Enter background metadata and counterpart disposition via 'Curveball Slider' (Logical ↔ Defensive ↔ Aggressive ↔ Unpredictable)." },
+                { title: "Story 3 & Feature 2: Voice Conversation Engine", desc: "STT & TTS integrated with low-latency LLM pipeline. Delivers natural conversational turns (<1.5s latency), interjecting dynamic objections, interruptions, and resistance patterns if the user yields too easily." },
+                { title: "Story 4 & Feature 3: Actionable Coach Debrief", desc: "AI turns into a supportive mentor. Provides full conversation arc analytics, filler word/silence metrics, specific audio-referenced feedback coaching points, and remediation exercises." },
+                { title: "Story 5 & Feature 4: Longitudinal Progress Layer", desc: "Maintains a record of user sessions, displaying the longitudinal 'Poise Under Pressure' index and keeping up streaks (e.g. 3-week streak) to lock in continuous growth." }
+              ].map((feature, i) => (
+                <div key={i} className="space-y-2">
+                  <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0" />
+                    <span>{feature.title}</span>
+                  </h4>
+                  <p className="text-xs text-zinc-400 pl-6 leading-relaxed">{feature.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 7. Non-Functional Requirements */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 8: Non-Functional requirements</h3>
+            <ul className="space-y-3 text-sm text-zinc-400">
+              <li>• <strong>Performance Latency:</strong> Response pipeline takes &lt; 1.5 seconds between speech capture and voice feedback back.</li>
+              <li>• <strong>Session Duration:</strong> Supports average 5-7 minute sessions, up to a maximum 10 minute stress limit.</li>
+              <li>• <strong>Strict Privacy Guardrails:</strong> Audio recordings are immediately deleted post-debrief is completed. Chats are cached for only 30 days to empower progress graphs. Highly compliant with India's DPDP Act (2023).</li>
+            </ul>
+          </section>
+
+          {/* 8. Success Metrics */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 9 & 10: KPIs & MVP Phasing</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+              <div className="space-y-3 text-zinc-400">
+                <h4 className="text-xs font-bold text-white uppercase">Product KPIs</h4>
+                <p>• <strong>Activation Rate:</strong> New users completing a full session in week 1.</p>
+                <p>• <strong>Retention Curve:</strong> 2-week and 4-week user tracking patterns.</p>
+                <p>• <strong>Perceived Realism:</strong> % of sessions rated ≥ 4/5 for conversational response realism.</p>
+              </div>
+              <div className="space-y-3 text-zinc-400">
+                <h4 className="text-xs font-bold text-white uppercase">MVP Phasing Schedule</h4>
+                <p><strong>Milestone 1:</strong> One base scenario track + restricted emotional slider + basic textual summary.</p>
+                <p><strong>Milestone 2:</strong> Expand full scenario roster + active progress analytics + refine tone responsiveness.</p>
+                <p><strong>Milestone 3:</strong> Longitudinal pattern diagnosis + sound frequency detection + conversational heatmaps.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* 9. Business Model */}
+          <section className="space-y-6">
+            <h3 className="text-lg font-bold text-white uppercase tracking-wider pb-2 border-b border-zinc-900">Ch 12 & 13: Economics & Re-engagement</h3>
+            <div className="space-y-4 text-sm text-zinc-400">
+              <p>• <strong>Freemium Tiering:</strong> 3 free roleplay sessions per month, followed by standard pricing of ₹199/month for unlimited training.</p>
+              <p>• <strong>Unit Economics:</strong> Estimated LLM cost / session of ~₹4-6, STT cost of ~₹1-2, TTS cost of ~₹1-2. Total approximate session cost to operate: ~₹6-10.</p>
+              <p>• <strong>Nudge Logic:</strong> Triggers notifications 24 hours prior to configured events (e.g., 'Your salary negotiation is tomorrow. Warm up in our private sandbox now!')</p>
             </div>
           </section>
         </div>
@@ -1794,10 +2001,12 @@ export default function App() {
   const [isStravaPRDOpen, setIsStravaPRDOpen] = useState(false);
   const [isHRPRDOpen, setIsHRPRDOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isVoicePRDOpen, setIsVoicePRDOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-400 font-sans selection:bg-blue-500/30">
       <PRDModal isOpen={isPRDOpen} onClose={() => setIsPRDOpen(false)} />
+      <VoicePRDModal isOpen={isVoicePRDOpen} onClose={() => setIsVoicePRDOpen(false)} />
       <StravaModal isOpen={isStravaOpen} onClose={() => setIsStravaOpen(false)} />
       <StravaPhase3Modal isOpen={isStravaPhase3Open} onClose={() => setIsStravaPhase3Open(false)} />
       <StravaPRDModal isOpen={isStravaPRDOpen} onClose={() => setIsStravaPRDOpen(false)} />
@@ -2113,60 +2322,210 @@ export default function App() {
               }
             ]}
           />
+
+          <ProjectCard 
+            title="AI Voice Conversation Simulator"
+            icon={Mic}
+            problem="Students and early-career professionals face an 'interpersonal intelligence gap'—they intellectualize what they should say in high-stakes moments but routinely freeze or underperform under emotional pressure, without a safe place to practice."
+            insight="70% of business leaders note a severe communication skill gap in young hires. Users prefer practicing alone due to the high social cost and judgment fear of peer-to-peer roleplay, demanding private, consequence-free environments."
+            solution="A voice-first conversational AI trainer designed to simulate emotionally unpredictable counterparts (e.g., tough managers, defensive partners) in realistic, real-time scenarios, followed by an actionable coaching debrief."
+            features={[
+              {
+                name: "Interactive Scenario Onboarding",
+                why: "Build contextual relevance for specific practice needs.",
+                problem: "Generic roleplay templates lack the personal stakes or specific constraints users actually face.",
+                better: "Enables selection of curated tracks (salary negotiation, boundary-setting) or custom setup, indicating specific counterpart details."
+              },
+              {
+                name: "Real-time Voice Conversation Engine",
+                why: "Simulate real conversational momentum and physiological triggers.",
+                problem: "Text-based practice fails to evoke the visceral emotional responses (freeze/flight) of real-time verbal confrontation.",
+                better: "Binds state-of-the-art STT and TTS under a <1.5s latency target, forcing users to adapt dynamically to interruptions and resistance."
+              },
+              {
+                name: "Tactical 'Curveball' Disposition Slider",
+                why: "Build progressive stress-tolerance and emotional resilience.",
+                problem: "Standard chatbots remain passive or predictable, which prevents training transference to real life.",
+                better: "Enables manual calibration of counterpart difficulty and mood (Logical ↔ Defensive ↔ Aggressive ↔ Unpredictable)."
+              },
+              {
+                name: "Post-Session Coach Debrief",
+                why: "Surface unconscious biases and establish clear feedback loops.",
+                problem: "Without objective feedback, users indefinitely replicate communication blind spots.",
+                better: "Transitions automatically into a supportive Coach persona, delivering structured diagnostics, timestamped audio commentary, and a 'Poise Under Pressure' trend score."
+              }
+            ]}
+            thinking="I designed this simulator around psychological safety and low latency. By integrating dual TTS and STT pipelines under 1.5 seconds, we trigger true conversational reflexes, while maintaining a completely private sandbox to remove social fear."
+            impact="Empowered users to confront high-stakes professional negotiations and boundary-management scenarios with calm, clarity, and zero regrets."
+            decisions="I prioritized an entirely on-demand, private voice simulation over text-only features to mimic emotional stakes, and calibrated the metric split to be 70% objective (silence duration, filler words) so users cannot inflate self-scores."
+            tradeoffs={[
+              "Latency vs. Vocal Nuance: Prioritized sub-1.5s response times over deep real-time vocal analysis in the MVP.",
+              "Psychological Safety vs. Social Benchmarking: Opposed community leaderboards in favor of a 100% private sandbox to prevent user self-consciousness.",
+              "Scope vs. Retraining Cost: Opted for an orchestrator model with curated prompt guidelines rather than full model fine-tuning to keep API costs down."
+            ]}
+            northStar="Poise Under Pressure Index (Target: 25% improvement over 5 sessions)"
+            kpis={[
+              "60% Activation Rate (Outcome: Users completing at least one full session in week 1)",
+              "3+ Sessions/Week Engagement (Outcome: High practice frequency and habit-building)",
+              "80% Perceived Realism Rate (Outcome: Verified emotional immersion/transferability)",
+              "30% reduction in user response hesitation (Outcome: Direct verbal confidence improvement)"
+            ]}
+            userFlow={{
+              entry: "Aisha launches the mobile-first simulator and configures standard salary negotiation with her manager.",
+              interaction: "She sets the mood to 'Defensive' and practices speaking. The voice engine interjects with objections and interruptions.",
+              result: "Aisha is guided through standard verbal objections and completes the negotiation, instantly loading a timestamped, audio-referenced feedback sheet."
+            }}
+            stack={["React", "Tailwind CSS", "Web Audio API", "Gemini Pro", "Web Speech API", "Figma"]}
+            testing="Simulated roleplay turn-taking under variable bandwidth conditions to harden the <1.5s latency threshold. Tested curveball behaviors against 15+ student cohorts to ensure emotional feedback triggers."
+            systemOutput={[
+              "> Voice Session Init: Career Progression",
+              "> Disposition Level: Aggressive [4/4]",
+              "! Critical Event: User hesitated for 3.9 seconds",
+              "> Status: Counterpart interjected with deflection",
+              "> Coach: Transitioning to de-escalation review"
+            ]}
+            limitations={[
+              "Dependence on strong browser/device Web Speech API implementations for optimal vocal synthesis.",
+              "V1 only supports English; localized regional accent accuracy can vary."
+            ]}
+            futureImprovements={[
+              "Acoustic analysis integration to measure voice tremor spikes, volume variations, and speaking rate.",
+              "Multi-lingual support with regional Indian languages and enterprise jargon dictionary updates."
+            ]}
+            failureHandling={[
+              {
+                scenario: "STT Network Timeout",
+                handling: "Dynamically switches search triggers to high-context text backup so the flow does not freeze or drop state."
+              },
+              {
+                scenario: "High Jitter or Jumbled Input",
+                handling: "Prompts the user with contextual guidance (e.g., 'Let me repeat that...') rather than raising an model hallucination error."
+              }
+            ]}
+          />
         </section>
 
         {/* Prototype Section */}
         <section className="py-24 border-t border-zinc-900">
           <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-zinc-600 mb-16">Product Prototype</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Uber AI Safety Interface</h3>
-              <p className="text-zinc-400 mb-6 leading-relaxed">
-                This prototype demonstrates the real-time AI monitoring interface. It highlights how the system handles route deviations and triggers safety alerts without disrupting the user experience.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex gap-3">
-                  <Zap className="w-5 h-5 text-blue-500 shrink-0" />
-                  <span>Demonstrates autonomous 'Are you safe?' triggers</span>
-                </li>
-                <li className="flex gap-3">
-                  <Shield className="w-5 h-5 text-blue-500 shrink-0" />
-                  <span>Showcases the integrated SOS and Medical escalation flow</span>
-                </li>
-              </ul>
-              <motion.a 
-                href="https://ai.studio/apps/3599911d-15dd-43a5-82a4-f2a7841f0846"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 inline-flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink className="w-5 h-5" />
-                Launch Full Prototype
-              </motion.a>
+          <div className="space-y-24">
+            {/* Uber AI Safety */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6">Uber AI Safety Interface</h3>
+                <p className="text-zinc-400 mb-6 leading-relaxed">
+                  This prototype demonstrates the real-time AI monitoring interface. It highlights how the system handles route deviations and triggers safety alerts without disrupting the user experience.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex gap-3">
+                    <Zap className="w-5 h-5 text-blue-500 shrink-0" />
+                    <span>Demonstrates autonomous 'Are you safe?' triggers</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <Shield className="w-5 h-5 text-blue-500 shrink-0" />
+                    <span>Showcases the integrated SOS and Medical escalation flow</span>
+                  </li>
+                </ul>
+                <motion.a 
+                  href="https://ai.studio/apps/3599911d-15dd-43a5-82a4-f2a7841f0846"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 inline-flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  Launch Full Prototype
+                </motion.a>
+              </div>
+              <div className="aspect-[9/16] max-w-[300px] mx-auto bg-zinc-900 rounded-[3rem] border-[8px] border-zinc-800 overflow-hidden shadow-2xl relative group">
+                 <motion.a 
+                   href="https://ai.studio/apps/3599911d-15dd-43a5-82a4-f2a7841f0846"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-900 hover:bg-zinc-800 transition-colors"
+                   whileHover={{ scale: 1.02 }}
+                   whileTap={{ scale: 0.98 }}
+                 >
+                   <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
+                     <ExternalLink className="w-8 h-8 text-white" />
+                   </div>
+                   <span className="text-white font-bold text-lg">Launch Prototype</span>
+                   <span className="text-xs text-zinc-500 mt-2 px-6 text-center italic">
+                     Uber AI Safety Flow
+                   </span>
+                   <div className="mt-8 flex items-center gap-2 text-blue-400 text-xs font-medium">
+                     <span>View in AI Studio</span>
+                     <ChevronRight className="w-3 h-3" />
+                   </div>
+                 </motion.a>
+              </div>
             </div>
-            <div className="aspect-[9/16] max-w-[300px] mx-auto bg-zinc-900 rounded-[3rem] border-[8px] border-zinc-800 overflow-hidden shadow-2xl relative group">
-               <motion.a 
-                 href="https://ai.studio/apps/3599911d-15dd-43a5-82a4-f2a7841f0846"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-900 hover:bg-zinc-800 transition-colors"
-                 whileHover={{ scale: 1.02 }}
-                 whileTap={{ scale: 0.98 }}
-               >
-                 <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
-                   <ExternalLink className="w-8 h-8 text-white" />
-                 </div>
-                 <span className="text-white font-bold text-lg">Launch Prototype</span>
-                 <span className="text-xs text-zinc-500 mt-2 px-6 text-center italic">
-                   Uber AI Safety Flow
-                 </span>
-                 <div className="mt-8 flex items-center gap-2 text-blue-400 text-xs font-medium">
-                   <span>View in AI Studio</span>
-                   <ChevronRight className="w-3 h-3" />
-                 </div>
-               </motion.a>
+
+            {/* AI Voice Simulator */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-t border-zinc-900/50 pt-20">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6">AI Voice Conversation Simulator</h3>
+                <p className="text-zinc-400 mb-6 leading-relaxed">
+                  This interactive training prototype runs custom speech-to-text synthesis pipelines inside a zero-latency conversational web sandbox, enabling users to calibrate and challenge their interpersonal skills.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex gap-3">
+                    <Mic className="w-5 h-5 text-blue-500 shrink-0" />
+                    <span>Real-time voice-to-voice active loopback with emotional stress triggers</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <Layers className="w-5 h-5 text-blue-500 shrink-0" />
+                    <span>Calibratable Curveball disposition slider and post-session Coach analytics report card</span>
+                  </li>
+                </ul>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <motion.a 
+                    href="https://mga-assignment-hellopm.lovable.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20 shadow-blue-600/20"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    Launch Interactive App
+                  </motion.a>
+                  <motion.a 
+                    href="https://aistudio.google.com/apps/29a12b49-9703-434f-ad0f-ff657b3ee6f3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full font-bold transition-colors border border-zinc-800"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    View Workspace
+                  </motion.a>
+                </div>
+              </div>
+              <div className="aspect-[9/16] max-w-[300px] mx-auto bg-zinc-900 rounded-[3rem] border-[8px] border-zinc-800 overflow-hidden shadow-2xl relative group">
+                 <motion.a 
+                   href="https://mga-assignment-hellopm.lovable.app/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-900 hover:bg-zinc-800 transition-colors"
+                   whileHover={{ scale: 1.02 }}
+                   whileTap={{ scale: 0.98 }}
+                 >
+                   <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
+                     <ExternalLink className="w-8 h-8 text-white" />
+                   </div>
+                   <span className="text-white font-bold text-lg">Launch App</span>
+                   <span className="text-xs text-zinc-500 mt-2 px-6 text-center italic">
+                     AI Voice Conversations
+                   </span>
+                   <div className="mt-8 flex items-center gap-2 text-blue-400 text-xs font-medium">
+                     <span>Explore Interface</span>
+                     <ChevronRight className="w-3 h-3" />
+                   </div>
+                 </motion.a>
+              </div>
             </div>
           </div>
         </section>
@@ -2183,6 +2542,7 @@ export default function App() {
               { title: "Strava Improvement Phase 1-3", desc: "User research, PIF prioritization, and feature ideation for beginner growth.", group: "Strava" },
               { title: "HR Chatbot Product PRD", desc: "Enterprise RAG-based assistant for instant, cited answers to HR policy queries.", group: "HR AI" },
               { title: "HR Chatbot Technical Spec", desc: "RAG pipeline architecture, chunking strategy, and RBAC implementation.", group: "HR AI" },
+              { title: "AI Voice Simulator PRD", desc: "Complete product requirements and functional specifications for the real-time AI Voice conversational simulator.", group: "Voice AI", link: "https://mga-assignment-hellopm.lovable.app/" },
             ].map((doc: any, i: number) => (
               <div key={i} className="p-6 bg-zinc-900/30 border border-zinc-900 rounded-xl hover:border-zinc-700 transition-colors group cursor-pointer flex flex-col justify-between">
                 <div>
@@ -2193,7 +2553,7 @@ export default function App() {
                   <h4 className="text-white font-bold mb-2">{doc.title}</h4>
                   <p className="text-sm text-zinc-500 mb-4">{doc.desc}</p>
                 </div>
-                {(doc.link || doc.title === "Uber AI Safety PRD" || doc.title === "Strava Guided Experience PRD" || doc.title === "Strava Phase 2 Research" || doc.title === "Strava Phase 3: Strategy" || doc.title === "Strava Improvement Phase 1-3" || doc.title === "HR Chatbot Product PRD") && (
+                {(doc.link || doc.title === "Uber AI Safety PRD" || doc.title === "Strava Guided Experience PRD" || doc.title === "Strava Phase 2 Research" || doc.title === "Strava Phase 3: Strategy" || doc.title === "Strava Improvement Phase 1-3" || doc.title === "HR Chatbot Product PRD" || doc.title === "AI Voice Simulator PRD") && (
                   <div className="mt-auto flex flex-col gap-3">
                     {doc.link && (
                       <a 
@@ -2207,12 +2567,13 @@ export default function App() {
                         View Live Prototype
                       </a>
                     )}
-                    {(doc.title === "Uber AI Safety PRD" || doc.title === "Strava Guided Experience PRD" || doc.title === "HR Chatbot Product PRD") && (
+                    {(doc.title === "Uber AI Safety PRD" || doc.title === "Strava Guided Experience PRD" || doc.title === "HR Chatbot Product PRD" || doc.title === "AI Voice Simulator PRD") && (
                       <button 
                         onClick={(e) => {
                           e.stopPropagation();
                           if (doc.title === "Uber AI Safety PRD") setIsPRDOpen(true);
                           else if (doc.title === "Strava Guided Experience PRD") setIsStravaPRDOpen(true);
+                          else if (doc.title === "AI Voice Simulator PRD") setIsVoicePRDOpen(true);
                           else setIsHRPRDOpen(true);
                         }}
                         className="inline-flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-white transition-colors"
